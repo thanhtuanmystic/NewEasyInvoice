@@ -571,6 +571,16 @@ nav .navbar .buy-now:hover {
 .home #price .note span {
   font-weight: 700;
 }
+.home #price .price-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 3rem;
+}
+.home #feedback {
+  padding: 10rem 0;
+}
 
 @media (min-width: 1600px) {
   .over-nav .container,

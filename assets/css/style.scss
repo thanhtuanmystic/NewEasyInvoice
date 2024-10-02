@@ -584,6 +584,16 @@ nav {
         font-weight: 700;
       }
     }
+    .price-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.6rem;
+      margin-top: 3rem;
+    }
+  }
+  #feedback {
+    padding: 10rem 0;
   }
 }
 

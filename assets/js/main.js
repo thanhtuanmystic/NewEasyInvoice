@@ -69,7 +69,8 @@ $(document).ready(function () {
       }
     },
   });
-  $("#business-diamond-tab .business-diamond-slick").slick({
+  // Common settings for the slick slider
+  const baseSlickSettings = {
     infinite: false,
     speed: 300,
     slidesToShow: 4,
@@ -99,102 +100,22 @@ $(document).ready(function () {
         },
       },
     ],
-  });
+  };
 
-  $("#business-gold-tab .business-gold-slick").slick({
-    infinite: false,
-    speed: 300,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  });
+  // Function to initialize the slick slider
+  function initializeSlick(selector, slidesToShow) {
+    const slickSettings = {
+      ...baseSlickSettings,
+      slidesToShow: slidesToShow,
+    };
 
-  $(".htc88-slick").slick({
-    infinite: false,
-    speed: 300,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  });
-  $(".htc78-slick").slick({
-    infinite: false,
-    speed: 300,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  });
+    $(selector).slick(slickSettings);
+  }
+  // Initialize sliders
+  initializeSlick("#business-diamond-tab .business-diamond-slick", 4);
+  initializeSlick("#business-gold-tab .business-gold-slick", 4);
+  initializeSlick(".htc88-slick", 3);
+  initializeSlick(".htc78-slick", 3);
 
   $(".business-tab li").click(function () {
     // Kích hoạt click vào thẻ a bên trong thẻ li được click
@@ -230,73 +151,32 @@ const htc78Packages = [
   { year: "2 năm", quantity: 600, price: "1.450.000" },
   { year: "3 năm", quantity: 1000, price: "2.100.000" },
 ];
+// Common function to generate package HTML
+function appendPackages(selector, packages, type) {
+  $.each(packages, function (index, pkg) {
+    const quantityOrYear = type === "year" ? pkg.year : pkg.quantity;
+    $(selector).append(`
+      <div class="price-box">
+        <div class="price-name">${
+          type === "year" ? "Gói" : type
+        } <span>${quantityOrYear}</span></div>
+        <div class="price-have">
+          <img srcset="./assets/img/tick-icon.png 2x" alt="Tick Icon" />
+          <span>${pkg.quantity}</span> hoá đơn điện tử
+        </div>
+        <div class="price-money">
+          ${pkg.price} <span>vnđ/gói</span>
+        </div>
+        <a href="" class="ei-primary-btn">
+          <div>Mua ngay!</div>
+        </a>
+      </div>
+    `);
+  });
+}
 
-// Duyệt qua từng phần tử của mảng và tạo các div cho từng gói
-$.each(businessDiamondPackages, function (index, pkg) {
-  $("#business-diamond-tab #business-diamond-list").append(`
-                <div class="price-box">
-                  <div class="price-name">Diamond <span>${pkg.quantity}</span></div>
-                  <div class="price-have">
-                    <img srcset="./assets/img/tick-icon.png 2x" alt="Tick Icon" />
-                    <span>${pkg.quantity}</span> hoá đơn điện tử
-                  </div>
-                  <div class="price-money">
-                    ${pkg.price} <span>vnđ/gói</span>
-                  </div>
-                  <a href="" class="ei-primary-btn">
-                    <div>Mua ngay!</div>
-                  </a>
-                </div>
-            `);
-});
-$.each(businessGoldPackages, function (index, pkg) {
-  $("#business-gold-tab #business-gold-list").append(`
-                <div class="price-box">
-                  <div class="price-name">Gold <span>${pkg.quantity}</span></div>
-                  <div class="price-have">
-                    <img srcset="./assets/img/tick-icon.png 2x" alt="Tick Icon" />
-                    <span>${pkg.quantity}</span> hoá đơn điện tử
-                  </div>
-                  <div class="price-money">
-                    ${pkg.price} <span>vnđ/gói</span>
-                  </div>
-                  <a href="" class="ei-primary-btn">
-                    <div>Mua ngay!</div>
-                  </a>
-                </div>
-            `);
-});
-$.each(htc88Packages, function (index, pkg) {
-  $("#htc88-list").append(`
-                <div class="price-box">
-                  <div class="price-name">Gói <span>${pkg.year}</span></div>
-                  <div class="price-have">
-                    <img srcset="./assets/img/tick-icon.png 2x" alt="Tick Icon" />
-                    <span>${pkg.quantity}</span> hoá đơn điện tử
-                  </div>
-                  <div class="price-money">
-                    ${pkg.price} <span>vnđ/gói</span>
-                  </div>
-                  <a href="" class="ei-primary-btn">
-                    <div>Mua ngay!</div>
-                  </a>
-                </div>
-            `);
-});
-$.each(htc78Packages, function (index, pkg) {
-  $("#htc78-list").append(`
-                <div class="price-box">
-                  <div class="price-name">Gói <span>${pkg.year}</span></div>
-                  <div class="price-have">
-                    <img srcset="./assets/img/tick-icon.png 2x" alt="Tick Icon" />
-                    <span>${pkg.quantity}</span> hoá đơn điện tử
-                  </div>
-                  <div class="price-money">
-                    ${pkg.price} <span>vnđ/gói</span>
-                  </div>
-                  <a href="" class="ei-primary-btn">
-                    <div>Mua ngay!</div>
-                  </a>
-                </div>
-            `);
-});
+// Append packages to respective sections
+appendPackages("#business-diamond-list", businessDiamondPackages, "Diamond");
+appendPackages("#business-gold-list", businessGoldPackages, "Gold");
+appendPackages("#htc88-list", htc88Packages, "year");
+appendPackages("#htc78-list", htc78Packages, "year");
