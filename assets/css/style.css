@@ -725,7 +725,7 @@ nav .navbar .buy-now:hover {
 }
 .home #form_bottom {
   padding: 10rem 0;
-  background-image: url(http://easyinvoice.vn/wp-content/uploads/2024/10/form-index-bg.png);
+  background-image: url(https://easyinvoice.vn/wp-content/uploads/2024/10/form-background.png);
 }
 .home #form_bottom .ei-title {
   color: #fff;
@@ -960,6 +960,11 @@ nav .navbar .buy-now:hover {
     max-width: 156rem;
   }
 }
+@media (max-width: 1600px) {
+  #footer .footer-credit .all-product .all-product-show {
+    width: 100rem;
+  }
+}
 @media (max-width: 1400px) {
   nav .navbar .buy-now {
     display: none;
@@ -985,10 +990,19 @@ nav .navbar .buy-now:hover {
   .home #form_bottom {
     padding: 5rem 0;
   }
+  #footer {
+    padding: 5rem 0;
+  }
+  .home #price .price-box .price-money {
+    font-size: 2.4rem;
+  }
 }
 @media (max-width: 1200px) {
   .home #feedback .feedback-box {
     padding: 2rem;
+  }
+  #footer .footer-credit .all-product .all-product-show {
+    width: 60rem;
   }
 }
 @media (max-width: 1024px) {
@@ -1049,6 +1063,17 @@ nav .navbar .buy-now:hover {
   .home #price .price-slick .slick-prev {
     left: 0;
   }
+  .home #price .price-tabs-head li {
+    font-size: 1.6rem;
+  }
+  #footer .footer-credit {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  #footer .footer-credit .all-product .all-product-show {
+    width: 50rem;
+  }
 }
 @media (max-width: 500px) {
   .home #featured,
@@ -1062,6 +1087,9 @@ nav .navbar .buy-now:hover {
   .home #benefit {
     padding: 2rem 0;
   }
+  #footer {
+    padding: 2rem 0;
+  }
   .ei-title {
     font-size: 2rem;
     line-height: normal;
@@ -1069,6 +1097,30 @@ nav .navbar .buy-now:hover {
   }
   .home #featured .featured-box {
     flex-direction: row;
+  }
+  .home #form_bottom .list-featured {
+    gap: 1rem;
+  }
+  .home #form_bottom .form-box .form-title {
+    font-size: 2rem;
+  }
+  .home #form_bottom .form-box .form-row {
+    margin-bottom: 1.2rem;
+  }
+  .home #form_bottom .form-box {
+    padding: 3rem 2rem;
+  }
+  #footer .footer-credit .all-product .all-product-show {
+    width: 36rem;
+  }
+  #footer .footer-credit {
+    margin-top: 1rem;
+  }
+  #footer .list-title-footer li {
+    font-size: 1.4rem;
+  }
+  #footer .footer-col-left .footer-info, #footer .list-title-footer {
+    gap: 1.6rem;
   }
 }
 
