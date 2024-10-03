@@ -180,3 +180,63 @@ appendPackages("#business-diamond-list", businessDiamondPackages, "Diamond");
 appendPackages("#business-gold-list", businessGoldPackages, "Gold");
 appendPackages("#htc88-list", htc88Packages, "year");
 appendPackages("#htc78-list", htc78Packages, "year");
+
+// Scroll partner
+const scrollers = document.querySelectorAll(".scroller");
+
+// If an user hasn't opted in for recuded motion, then we add the animation
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  addAnimation();
+}
+
+function addAnimation() {
+  scrollers.forEach((scroller) => {
+    // add data-animated="true" to every `.scroller` on the page
+    scroller.setAttribute("data-animated", true);
+
+    // Make an array from the elements within `.scroller-inner`
+    const scrollerInner = scroller.querySelector(".scroller__inner");
+    const scrollerContent = Array.from(scrollerInner.children);
+
+    // For each item in the array, clone it
+    // add aria-hidden to it
+    // add it into the `.scroller-inner`
+    scrollerContent.forEach((item) => {
+      const duplicatedItem = item.cloneNode(true);
+      duplicatedItem.setAttribute("aria-hidden", true);
+      scrollerInner.appendChild(duplicatedItem);
+    });
+  });
+}
+
+// All product show
+$(document).ready(function () {
+  var timeout;
+  $(".all-product").hover(
+    function () {
+      clearTimeout(timeout);
+      $(".all-product-show").show();
+    },
+    function () {
+      timeout = setTimeout(function () {
+        if (!$(".all-product-show").is(":hover")) {
+          $(".all-product-show").hide();
+        }
+      }, 100); // Delay để kiểm tra nếu con trỏ chuột không nằm trên div2
+    }
+  );
+
+  $(".all-product-show").hover(
+    function () {
+      clearTimeout(timeout);
+      $(".all-product-show").show();
+    },
+    function () {
+      timeout = setTimeout(function () {
+        if (!$(".all-product").is(":hover")) {
+          $(".all-product-show").hide();
+        }
+      }, 100); // Delay để kiểm tra nếu con trỏ chuột không nằm trên div1
+    }
+  );
+});
