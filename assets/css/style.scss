@@ -574,16 +574,36 @@ nav {
           line-height: 2.4rem;
         }
       }
+      .price-detail {
+        margin-top: 2.4rem;
+      }
     }
     .note {
       color: var(--text-800, #070f40);
       font-size: 1.6rem;
-      font-style: italic;
       font-weight: 500;
       line-height: 2.4rem;
       margin-top: 3rem;
       span {
         font-weight: 700;
+      }
+      .note-head {
+        color: var(--Priamry-light-2, #f24e1e);
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 2.4rem; /* 150% */
+      }
+      ul {
+        padding: 0;
+        li {
+          color: var(--text-800, #070f40);
+          font-size: 1.6rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 2.4rem; /* 150% */
+          list-style: inside;
+        }
       }
     }
     .price-btn {
@@ -983,6 +1003,177 @@ nav {
     }
   }
 }
+// Tính năng
+#main_featured {
+  padding: 10rem 0;
+  .list-featured {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    .featured-even-row {
+      .row {
+        flex-direction: row-reverse;
+      }
+    }
+    .featured-row {
+      .featured-info {
+        width: 80%;
+      }
+      .featured-name {
+        color: var(--text-800, #070f40);
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 2.9rem; /* 145% */
+        display: flex;
+        align-items: center;
+        gap: 1.8rem;
+      }
+      .featured-des {
+        color: var(--text-700, #353e65);
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2.4rem; /* 150% */
+        margin-top: 1.6rem;
+        margin-bottom: 3.2rem;
+      }
+      .featured-list-btn {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
+}
+#advance_featured {
+  padding: 10rem 0;
+  background: var(--Backblue, #edecf0);
+  .list-advance {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--text-800, #070f40);
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 2.4rem; /* 150% */
+    }
+  }
+}
+#business_model {
+  padding: 10rem 0;
+}
+.price-bg {
+  background: #fff !important;
+  .price-tabs-head {
+    background: var(--Priamry-light-7, #feede9) !important;
+    li {
+      background: #fff !important;
+    }
+    .ui-state-active,
+    .ui-state-hover {
+      background: var(--Priamry-light-2, #f24e1e) !important;
+      color: #fff;
+    }
+  }
+}
+
+#ei_process {
+  padding: 10rem 0;
+  background: var(--Backblue, #edecf0);
+  position: relative;
+  padding-bottom: 46rem;
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+  ul {
+    li {
+      list-style: inside;
+    }
+  }
+
+  .faq-question {
+    color: var(--text-800, #070f40);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.4rem;
+    span {
+      color: var(--Priamry-light-2, #f24e1e);
+    }
+  }
+  .faq-answer {
+    color: var(--text-700, #353e65);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.4rem; /* 150% */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .icon-container i {
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .icon-container i.active {
+    transform: rotate(90deg);
+  }
+
+  .faq-box {
+    display: flex;
+    padding: 1.2rem 2.4rem;
+    flex-direction: column;
+    align-self: stretch;
+    background: #fff;
+    margin-bottom: 2rem;
+    border-radius: 0.6rem;
+    -webkit-border-radius: 0.6rem;
+    -moz-border-radius: 0.6rem;
+    -ms-border-radius: 0.6rem;
+    -o-border-radius: 0.6rem;
+    &:hover {
+      background: #fffaf3;
+    }
+  }
+  .faqBoxActive {
+    background: #fffaf3;
+  }
+  .faq-item {
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ei-process-img-mobile {
+    display: none;
+  }
+  .ei-process-img {
+    position: absolute;
+    top: 84%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+}
+.price-form {
+  #form_bottom {
+    margin-top: 25rem;
+  }
+}
 // Responsive
 @media (min-width: 1600px) {
   .over-nav .container,
@@ -1021,12 +1212,22 @@ nav {
     #form_bottom {
       padding: 5rem 0;
     }
+    #ei_process {
+      padding: 5rem 0;
+    }
   }
   #footer {
     padding: 5rem 0;
   }
   .home #price .price-box .price-money {
     font-size: 2.4rem;
+  }
+  #ei_process .ei-process-img {
+    width: 80%;
+    top: 80%;
+  }
+  .price-form #form_bottom {
+    margin-top: 16rem;
   }
 }
 @media (max-width: 1200px) {
@@ -1035,6 +1236,18 @@ nav {
   }
   #footer .footer-credit .all-product .all-product-show {
     width: 60rem;
+  }
+  #ei_process .ei-process-img {
+    display: none;
+  }
+  #ei_process .ei-process-img-mobile {
+    display: block;
+  }
+  #ei_process {
+    padding-bottom: 5rem;
+  }
+  .price-form #form_bottom {
+    margin-top: 0;
   }
 }
 
@@ -1077,6 +1290,12 @@ nav {
     margin-top: 1.2rem;
     font-size: 1.4rem;
   }
+  #main_featured .list-featured .featured-row .featured-info {
+    width: 100%;
+  }
+  #main_featured .list-featured {
+    gap: 4rem;
+  }
 }
 @media (max-width: 768px) {
   .home #slogan {
@@ -1113,6 +1332,15 @@ nav {
   }
   #footer .footer-credit .all-product .all-product-show {
     width: 50rem;
+  }
+  #main_featured .list-featured .featured-row .featured-name {
+    font-size: 1.8rem;
+  }
+  #ei_process .faq-question {
+    font-size: 1.6rem;
+  }
+  #ei_process .faq-answer {
+    font-size: 1.4rem;
   }
 }
 
@@ -1162,7 +1390,8 @@ nav {
   #footer .list-title-footer li {
     font-size: 1.4rem;
   }
-  #footer .footer-col-left .footer-info,#footer .list-title-footer {
+  #footer .footer-col-left .footer-info,
+  #footer .list-title-footer {
     gap: 1.6rem;
   }
 }
