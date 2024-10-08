@@ -122,7 +122,33 @@ $(document).ready(function () {
     $(this).find("a").trigger("click");
   });
 });
-
+$(document).ready(function () {
+  $("#document-tab").tabs({
+    activate: function (event, ui) {
+      if (ui.newPanel.attr("id") === "document-tab-1") {
+        $(".document-tabs-head li .document-tab1 img").attr(
+          "srcset",
+          "./assets/img/document-color-icon.png 2x"
+        );
+        $(".document-tabs-head li .document-tab2 img").attr(
+          "srcset",
+          "./assets/img/question-white-icon.png 2x"
+        );
+      } else if (ui.newPanel.attr("id") === "document-tab-2") {
+        $(".document-tabs-head li .document-tab1 img").attr(
+          "srcset",
+          "./assets/img/document-white-icon.png 2x"
+        );
+        $(".document-tabs-head li .document-tab2 img").attr(
+          "srcset",
+          "./assets/img/question-color-icon.png 2x"
+        );
+        $(".htc88-slick").slick("setPosition");
+        $(".htc78-slick").slick("setPosition");
+      }
+    },
+  });
+});
 // Mảng chứa dữ liệu các gói báo giá(trang chủ)
 const businessDiamondPackages = [
   { quantity: 300, price: "460.000" },
